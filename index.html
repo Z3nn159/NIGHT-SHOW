@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LIGHT NIGHT SHOW – persönliche futuristische Show-Website">
+<title>LIGHT NIGHT SHOW</title>
+<style>
+:root{--bg:#05060b;--panel:#0b0e18;--text:#f5f7ff;--muted:#9ba3b8;--cyan:#45eaff;--pink:#ff4fd8;--line:#1b2235}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 50% -10%,#182047 0,#05060b 45%);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,black,transparent 70%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1150px;margin:auto;padding:0 24px}
+nav{position:fixed;z-index:20;top:18px;left:50%;transform:translateX(-50%);width:min(92%,1000px);padding:12px 18px;border:1px solid #26304a;background:#080b13cc;backdrop-filter:blur(18px);border-radius:18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 0 40px #0008}
+.logo{font-weight:900;letter-spacing:3px}.logo span{color:var(--cyan)}.links{display:flex;gap:22px;color:#c7cede;font-size:14px}.links a:hover{color:var(--cyan)}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;position:relative;padding-top:80px}
+.orb{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,#45eaff33,transparent 65%);filter:blur(10px);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.18);opacity:.65}}
+.kicker{color:var(--cyan);letter-spacing:5px;font-size:12px;font-weight:800}.hero h1{font-size:clamp(52px,11vw,125px);line-height:.86;margin:22px 0;background:linear-gradient(90deg,#fff,#8eefff,#ff7be4,#fff);background-size:250%;-webkit-background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:250%}}
+.hero p{max-width:650px;margin:0 auto 30px;color:var(--muted);font-size:18px;line-height:1.7}
+.btn{display:inline-flex;gap:10px;align-items:center;padding:13px 19px;border-radius:12px;border:1px solid #33405e;background:#101626;color:#fff;font-weight:700;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-3px);border-color:var(--cyan);box-shadow:0 0 24px #45eaff22}.primary{background:linear-gradient(100deg,#18cfe5,#c946ff);border:0}
+section{padding:100px 0}.section-title{font-size:38px;margin:0 0 12px}.section-sub{color:var(--muted);margin:0 0 35px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,#0d1220,#080a11);border:1px solid var(--line);border-radius:20px;padding:25px;transition:.25s}.card:hover{transform:translateY(-6px);border-color:#36425f;box-shadow:0 18px 50px #0008}.icon{font-size:30px}.card h3{margin:15px 0 8px}.card p{color:var(--muted);line-height:1.6}
+.show{display:flex;justify-content:space-between;align-items:center;gap:20px}.date{color:var(--cyan);font-weight:800;letter-spacing:1px}.showlist{display:grid;gap:12px}.showlist .card{padding:20px 24px}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:190px;gap:12px}.tile{border-radius:18px;overflow:hidden;position:relative;border:1px solid #202941;background:linear-gradient(135deg,#12233a,#3b123b)}.tile:after{content:"";position:absolute;inset:-50%;background:linear-gradient(110deg,transparent 35%,#fff3 50%,transparent 65%);transform:rotate(20deg);animation:beam 5s linear infinite}.tile.big{grid-row:span 2;background:radial-gradient(circle at 30% 30%,#45eaff88,transparent 30%),linear-gradient(135deg,#071c2c,#300a2d)}.tile:nth-child(2){background:radial-gradient(circle at 70% 30%,#ff4fd877,transparent 30%),#10132a}.tile:nth-child(3){background:radial-gradient(circle at 30% 70%,#8f5cff88,transparent 30%),#0b1722}.tile:nth-child(4){background:radial-gradient(circle at 70% 60%,#45eaff66,transparent 30%),#151021}
+@keyframes beam{to{transform:translateX(80%) rotate(20deg)}}
+form{max-width:650px;display:grid;gap:12px}.field{width:100%;padding:15px 16px;border-radius:12px;border:1px solid #273149;background:#090d17;color:#fff;font:inherit}.field:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px #45eaff18}
+footer{border-top:1px solid var(--line);padding:35px 0;color:var(--muted);font-size:14px}.status{margin-top:15px;color:var(--cyan);min-height:22px}
+#top{position:fixed;right:22px;bottom:22px;z-index:10;display:none}
+@media(max-width:760px){.links{display:none}.grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.tile.big{grid-column:span 2;grid-row:span 1}.show{align-items:flex-start;flex-direction:column}.hero h1{font-size:58px}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#home">LIGHT <span>NIGHT</span> SHOW</a><div class="links"><a href="#show">SHOW</a><a href="#about">ÜBER MICH</a><a href="#gallery">GALERIE</a><a href="#contact">KONTAKT</a></div></nav>
+
+<main>
+<section class="hero" id="home"><div class="orb"></div><div class="wrap">
+<div class="kicker">WELCOME TO THE NIGHT</div>
+<h1>LIGHT<br>NIGHT SHOW</h1>
+<p>Eine persönliche Show-Welt aus Licht, Sound, Energie und futuristischen Momenten. Willkommen hinter den Kulissen.</p>
+<a class="btn primary" href="#show">Nächste Shows →</a>
+<a class="btn" href="#contact">Kontakt</a>
+</div></section>
+
+<section id="show"><div class="wrap">
+<h2 class="section-title">Nächste Shows</h2><p class="section-sub">Termine und besondere Night-Events.</p>
+<div class="showlist">
+<div class="card show"><div><div class="date">18. OKTOBER 2026</div><h3>NEON AFTER DARK</h3><p>Eine immersive Nacht voller Licht und elektronischer Sounds.</p></div><button class="btn" onclick="reserve('NEON AFTER DARK')">Interesse</button></div>
+<div class="card show"><div><div class="date">31. OKTOBER 2026</div><h3>HALLOWEEN LIGHT SESSION</h3><p>Special Edition mit düsterem Neon-Look und Überraschungen.</p></div><button class="btn" onclick="reserve('HALLOWEEN LIGHT SESSION')">Interesse</button></div>
+<div class="card show"><div><div class="date">21. NOVEMBER 2026</div><h3>FUTURE NIGHT</h3><p>Die große futuristische Light-Show.</p></div><button class="btn" onclick="reserve('FUTURE NIGHT')">Interesse</button></div>
+</div></div></section>
+
+<section id="about"><div class="wrap"><h2 class="section-title">Die Show</h2><p class="section-sub">Mehr als Licht – eine eigene Atmosphäre.</p>
+<div class="grid">
+<div class="card"><div class="icon">✦</div><h3>LIGHT</h3><p>Neon, Laser-Feeling und dynamische Lichtstimmungen für eine futuristische Atmosphäre.</p></div>
+<div class="card"><div class="icon">♫</div><h3>SOUND</h3><p>Musik und Energie werden zu einem gemeinsamen Erlebnis verbunden.</p></div>
+<div class="card"><div class="icon">◈</div><h3>VIBE</h3><p>Eine persönliche Show mit eigener Identität – dunkel, modern und unvergesslich.</p></div>
+</div></div></section>
+
+<section id="gallery"><div class="wrap"><h2 class="section-title">Night Gallery</h2><p class="section-sub">Visuelle Eindrücke der LIGHT NIGHT SHOW.</p>
+<div class="gallery"><div class="tile big"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div></div></section>
+
+<section id="contact"><div class="wrap"><h2 class="section-title">Kontakt</h2><p class="section-sub">Schreib mir eine Nachricht.</p>
+<form id="contactForm"><input class="field" required placeholder="Dein Name"><input class="field" required type="email" placeholder="E-Mail-Adresse"><textarea class="field" required rows="6" placeholder="Deine Nachricht"></textarea><button class="btn primary" type="submit">Nachricht senden ✦</button><div class="status" id="status"></div></form></div></section>
+</main>
+<footer><div class="wrap">© 2026 LIGHT NIGHT SHOW · Built for the night.</div></footer>
+<button id="top" class="btn" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const topBtn=document.getElementById('top');
+addEventListener('scroll',()=>topBtn.style.display=scrollY>500?'block':'none');
+function reserve(name){alert('Danke! Dein Interesse an „'+name+'“ wurde vorgemerkt. In einer echten Version kann hier ein Ticket-/Reservierungssystem angeschlossen werden.');}
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('status').textContent='✓ Nachricht vorbereitet – das Formular ist bereit für einen echten Mailversand.';e.target.reset();});
+</script>
+</body>
+</html>
